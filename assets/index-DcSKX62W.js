@@ -12583,8 +12583,8 @@ const bl = new uh(16777215, 1);
 bl.position.set(5, 10, 7.5);
 fi.add(bl);
 let la = null, Ti = null, ca = null;
-const Cm = new ml();
-Cm.load("/substance_standardSurface1_BaseColor.png", (i) => {
+const Cm = new ml(), Pm = "/Three.js-Gameboy-Mods/";
+Cm.load(Pm + "substance_standardSurface1_BaseColor.png", (i) => {
   ca = i;
   const t = i.image, e = document.createElement("canvas");
   e.width = t.width, e.height = t.height;
@@ -12615,13 +12615,13 @@ function Aa(i) {
     t.isMesh && (t.material = i);
   });
 }
-function Pm() {
+function Dm() {
   Ti && Aa(new Ls({ map: Ti }));
 }
-function Dm() {
+function Lm() {
   ca && Aa(new Ls({ map: ca }));
 }
-function Lm() {
+function Im() {
   Aa(new Ls({ wireframe: true }));
 }
 const Tl = new Sa();
@@ -12646,10 +12646,10 @@ const vr = { sceneA: () => {
   ys = Tl;
 }, sceneC: () => {
   ys = Al;
-} }, Im = new Ta(), Us = Im.addFolder("Mods");
-Us.add({ Greyscale: Pm }, "Greyscale").name("Greyscale");
-Us.add({ Color: Dm }, "Color").name("Original Color");
-Us.add({ Wireframe: Lm }, "Wireframe").name("Wireframe");
+} }, Um = new Ta(), Us = Um.addFolder("Mods");
+Us.add({ Greyscale: Dm }, "Greyscale").name("Greyscale");
+Us.add({ Color: Lm }, "Color").name("Original Color");
+Us.add({ Wireframe: Im }, "Wireframe").name("Wireframe");
 Us.open();
 window.addEventListener("DOMContentLoaded", () => {
   const i = document.getElementById("btn-gba"), t = document.getElementById("btn-gba-sp"), e = document.getElementById("btn-gbc");
