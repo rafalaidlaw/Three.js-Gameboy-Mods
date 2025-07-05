@@ -1,8 +1,6 @@
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
-import Stats from 'three/addons/libs/stats.module.js'
-//import { GUI } from 'dat.gui'
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 
@@ -23,7 +21,8 @@ let colorTexture: THREE.Texture | null = null;
 
 // Load both textures: greyscale and original
 const textureLoader = new THREE.TextureLoader();
-textureLoader.load('/substance_standardSurface1_BaseColor.png', (texture) => {
+const base = import.meta.env.BASE_URL;
+textureLoader.load(base + 'substance_standardSurface1_BaseColor.png', (texture) => {
   colorTexture = texture;
 
   // Convert the texture to greyscale using a canvas
@@ -51,7 +50,7 @@ textureLoader.load('/substance_standardSurface1_BaseColor.png', (texture) => {
   // Load the OBJ model after textures are ready
   const objLoader = new OBJLoader();
   objLoader.load(
-    '/model_0.obj',
+    base + 'model_0.obj',
     (object) => {
       loadedObject = object;
       object.traverse((child) => {
@@ -122,8 +121,23 @@ window.addEventListener('resize', () => {
 
 new OrbitControls(camera, renderer.domElement)
 
-const stats = new Stats()
-document.body.appendChild(stats.dom)
+// Mouse tracking for auto-rotation
+let isMouseOver = false;
+let lastMousePosition = { x: 0, y: 0 };
+
+// Track mouse events
+renderer.domElement.addEventListener('mouseenter', () => {
+  isMouseOver = true;
+});
+
+renderer.domElement.addEventListener('mouseleave', () => {
+  isMouseOver = false;
+});
+
+renderer.domElement.addEventListener('mousemove', (event) => {
+  lastMousePosition.x = event.clientX;
+  lastMousePosition.y = event.clientY;
+});
 
 let activeScene = sceneA
 const setScene = {
@@ -138,12 +152,10 @@ const setScene = {
   },
 }
 
+// GUI with only Mods folder (no scene switching controls)
 const gui = new GUI();
-// Remove scene switching buttons from GUI
-// gui.add(setScene, 'sceneA').name('Gameboy Advance');
-// gui.add(setScene, 'sceneB').name('Gameboy Advance SP');
-// gui.add(setScene, 'sceneC').name('Gameboy Color');
-const modsFolder = gui.addFolder('Mods');
+gui.title('Mods'); 
+const modsFolder = gui.addFolder('Color');
 modsFolder.add({ Greyscale: applyGreyscale }, 'Greyscale').name('Greyscale');
 modsFolder.add({ Color: applyColor }, 'Color').name('Original Color');
 modsFolder.add({ Wireframe: applyWireframe }, 'Wireframe').name('Wireframe');
@@ -162,12 +174,12 @@ window.addEventListener('DOMContentLoaded', () => {
 function animate() {
   requestAnimationFrame(animate)
 
-  //cube.rotation.x += 0.01
-  //cube.rotation.y += 0.01
+  // Auto-rotate object around y-axis when mouse is not hovering
+  if (loadedObject && !isMouseOver) {
+    loadedObject.rotation.y += 0.004;
+  }
 
   renderer.render(activeScene, camera)
-
-  stats.update()
 }
 
 animate()

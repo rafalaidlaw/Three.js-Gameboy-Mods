@@ -11,16 +11,16 @@ body {
   background: rgba(30,30,30,0.95);
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  padding: 1rem 0;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
   z-index: 1000;
 }
 #bottom-controls button {
   color: white;
   background: #444;
   border: none;
-  padding: 0.5rem 1.5rem;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+  font-size: 0.5rem;
   cursor: pointer;
 }
