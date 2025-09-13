@@ -28,4 +28,4 @@ A Three.js-based 3D viewer that showcases classic Game Boy models with interacti
 1. Install dependencies: `npm install`
 2. Start development server: `npm run dev`
 3. Open your browser to view the 3D models
-# Trigger deployment
+# Deployment trigger - Sat, Sep 13, 2025  9:50:59 AM
