@@ -1,56 +1,30 @@
-# Three.js-Boilerplate-TS-Vite
+# Three.js Game Boy Models Viewer
 
-A Three.js Boilerplate for TypeScript Vite projects.
+A Three.js-based 3D viewer that showcases classic Game Boy models with interactive material controls.
 
-This boilerplate is supplementary to <!--my book titled [**Three.js and TypeScript**](https://amzn.to/3FahROZ) and--> my **ThreeJS and TypeScript** courses at [Udemy](https://www.udemy.com/course/threejs-tutorials/?referralCode=4C7E1DE91C3E42F69D0F) and [YouTube (Channel membership required)](https://www.youtube.com/playlist?list=PLKWUX7aMnlEKTmkBqwjc-tZgULJdNBjEd)
+## Features
 
-[Introductory Video](https://youtu.be/cZWAqrJhtvQ&list=PLKWUX7aMnlEKTmkBqwjc-tZgULJdNBjEd)
+- **Interactive 3D Models**: View Game Boy Advance and Game Boy Advance SP models in 3D
+- **Material Controls**: Switch between original color, greyscale, and wireframe modes for both models
+- **Orbit Controls**: Rotate, zoom, and pan around the models with mouse controls
+- **Auto-rotation**: Models automatically rotate when not interacting
+- **Responsive Design**: Built with TypeScript and Vite for modern web development
 
-[Course Discount Coupons](https://sbcode.net/coupons#threejs)
+## Controls
 
-## Boilerplate Overview
+- **Mouse**: Orbit, zoom, and pan around the models
+- **Model Selection**: Switch between Game Boy Advance and SP models using the bottom buttons
+- **Material Effects**: Use the GUI dropdown to apply greyscale, color, or wireframe materials
 
-When run, the boilerplate shows a multi-coloured wireframe cube, with `OrbitControls`, `Dat.GUI` and `Stats.js` included.
+## Technologies
 
-[Example](https://sean-bradley.github.io/Three.js-Boilerplate-TS-Vite/)
+- Three.js for 3D rendering
+- TypeScript for type safety
+- Vite for fast development and building
+- Lil-GUI for interactive controls
 
-![](docs/screengrab.jpg)
+## Getting Started
 
-## Installing
-
-```bash
-git clone https://github.com/Sean-Bradley/Three.js-Boilerplate-TS-Vite.git
-cd Three.js-Boilerplate-TS-Vite
-npm install
-```
-
-### Develop
-
-```
-npm run dev
-```
-
-Visit [http://localhost:5173/](http://localhost:5173/)
-
-### Build Production
-
-```bash
-npm run build
-npm run preview
-```
-
-Visit [http://localhost:4173/](http://localhost:4173/)
-
-### Deploy to GitHub pages
-
-If you forked this repository, then you can publish your changes to GitHub pages.
-
-```bash
-npm run deploy
-```
-
-Visit `https://<your github username>.github.io/Three.js-Boilerplate-TS-Vite/`
-
-E.g.,
-
-[https://sean-bradley.github.io/Three.js-Boilerplate-TS-Vite/](https://sean-bradley.github.io/Three.js-Boilerplate-TS-Vite/)
+1. Install dependencies: `npm install`
+2. Start development server: `npm run dev`
+3. Open your browser to view the 3D models

@@ -480,7 +480,7 @@ renderer.domElement.addEventListener('mousemove', (event) => {
   lastMousePosition.y = event.clientY;
 });
 
-let activeScene = sceneA
+let activeScene = sceneB
 const setScene = {
   sceneA: () => {
     activeScene = sceneA
